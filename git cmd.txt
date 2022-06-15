@@ -1,0 +1,24 @@
+
+
+git init
+
+git remote add origin https://github.com/shitalrathod29/test1
+
+git add .
+
+git commit -m "initial repo"
+
+git config --global user.email "shitalrathore1018@gmail.com"
+
+ git config --global user.name "shitalrathod29"
+
+
+git commit -m "initial repo"
+
+git branch -M main
+
+git push -u origin main
+
+
+switch to new branch
+git checkout -b notes

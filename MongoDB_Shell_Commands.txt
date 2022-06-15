@@ -1,0 +1,361 @@
+Date : - 02/12/2021 (Day 01 of mongodb)
+
+-- ========================================================================================================================================================================
+# sample json format --
+
+{
+   "id" : 100,
+   "name" : "Onkar",
+   "address" : "Wakad",
+   "email_id" : "gaikwadonkar46@gmail.com"
+}
+-- ========================================================================================================================================================================
+
+
+
+
+-- ========================================================================================================================================================================
+# How to show list of database?
+show dbs
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# to connect with db?
+use humanResourceDB
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# How to verify which db connected?
+db
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# How to create a new collection?
+db.createCollectoin("address"
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# How to see list of commands/function()?
+db.humanResourceDB.help()
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# How to show list of collecitons?
+show collections
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# How to drop db.address?
+db.address.drop()
+-- ========================================================================================================================================================================
+
+
+
+-- ========================================================================================================================================================================
+# To insertOne record to collection as table in mongo db     
+-- ========================================================================================================================================================================
+  
+db.employees.insertOne({
+first_name : "Onkar",
+last_name : "Gaikwad",
+email : "gaikwadonkar46@gmail.com"
+})
+
+db.employees.insertOne({
+fname : "Onkar",
+lname : "Gaikwad",
+mail : "gaikwadonkar46@gmail.com"
+})
+
+db.employees.insertOne({
+_id : "1",
+fname : "Onkar",
+lname : "Gaikwad",
+mail : "gaikwadonkar46@gmail.com"
+})
+
+-- ========================================================================================================================================================================
+# how to see list of data from collection 
+db.employees.find()
+db.employees.find().pretty()
+-- ========================================================================================================================================================================
+
+
+-- ========================================================================================================================================================================
+# How to insert more than one record at a time 
+-- ========================================================================================================================================================================
+
+
+db.employees.insert({
+first_name : "Shreekant",
+last_name : "Dhokrat",
+mob_no : "8888555522"
+})
+OR
+db.employees.insert([{
+first_name : "Nikhil",
+last_name : "Gurav",
+mob_no : "8888555500"
+}, 
+{
+first_name : "Ganesh",
+last_name : "Pawar",
+mob_no : "8888555511"
+},
+{
+first_name : "Rohan",
+last_name : "Wable",
+mob_no : "8888555533"
+},
+])
+
+#How to insert many data at a time
+db.employees.insertMany([
+{
+_id : "2",
+first_name : "Nikhil",
+last_name : "Gurav",
+mob_no : "8888555500"
+},
+{
+_id : "3",
+first_name : "Nikhil",
+last_name : "Gurav",
+mob_no : "8888555500"
+},
+])
+
+
+-- ========================================================================================================================================================================
+#How to import data 
+mongoimport --db humanResourceDB --collection employees --file employeeData.json
+
+#Then display the imported data
+db.employees.find().pretty()
+-- ========================================================================================================================================================================
+
+
+-- ========================================================================================================================================================================
+#How to use 'findOne()' function
+1) db.employees.findOne() --> No parameter
+2) db.employees.findOne({first_name : "Onkar"}) -- With One parameter
+3) db.employees.findOne({first_name :{$gt: "Onkar"}}) --> With greater than operator
+4) db.employees.findOne({first_name :{$gte: "Nikhil"}}) --> With greater than equal to operator 
+-- ========================================================================================================================================================================
+
+-------------
+Examples -->
+-------------
+
+Ex 1: -
+db.employees.findOne() -->COMMAND (It will bring the first row from employees)
+{
+        "_id" : ObjectId("61a8502acec1eab46c6c79c1"),
+        "first_name" : "Onkar",
+        "last_name" : "Gaikwad",
+        "email" : "gaikwadonkar46@gmail.com"
+}
+
+Ex 3: -
+db.employees.findOne({first_name : "Onkar"})  -->COMMAND (Bring the data whose first_name is 'Onkar')
+{
+        "_id" : ObjectId("61a8502acec1eab46c6c79c1"),
+        "first_name" : "Onkar",
+        "last_name" : "Gaikwad",
+        "email" : "gaikwadonkar46@gmail.com"
+}
+
+Ex 3: -
+db.employees.findOne({first_name : "onkar"}) -->COMMAND (It is case sensitive hence will give null o/p. If no such data exists it will give 'null')
+null
+
+Ex 3: -
+ db.employees.find({first_name :{$gt: "Onkar"}}) -->COMMAND (Depending on ASCII values it will bring data which has greater value than 'O')
+{
+        { "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+		{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+		{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+}
+
+Ex 4: -
+db.employees.findOne({first_name :{$gt: "Onkar"}}) -->COMMAND (Same as above but way of displaying data is different and 'findOne()' will bring single row while 'find()' will bring all rows)
+{
+        "_id" : ObjectId("61a85f87cec1eab46c6c79c3"),
+        "first_name" : "Shreekant",
+        "last_name" : "Dhokrat",
+        "mob_no" : "8888555522".
+}
+
+Ex 5: -
+db.employees.findOne({first_name :{$gte: "Nikhil"}}) --> (Will Bring value which is greater than or equal to 'N')
+{
+        "_id" : ObjectId("61a8502acec1eab46c6c79c1"),
+        "first_name" : "Onkar",
+        "last_name" : "Gaikwad",
+        "email" : "gaikwadonkar46@gmail.com"
+}
+
+-- ========================================================================================================================================================================
+#How to Display Data in sorted manner
+1) db.employees.find({first_name :{$gte: "Nikhil"}}).sort({first_name : 1})
+2) db.employees.find().sort({first_name : 1})
+3) db.employees.find().sort({_id : 1})
+-- ========================================================================================================================================================================
+
+-------------
+Examples -->
+-------------
+
+Ex 1:-
+db.employees.find({first_name :{$gte: "Nikhil"}}).sort({first_name : 1})
+
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c4"), "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "2", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "3", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+
+Ex 2:-
+db.employees.find().sort({first_name : 1})
+
+{ "_id" : ObjectId("61a85394cec1eab46c6c79c2"), "fname" : "Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : "1", "fname" : "Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85897e2ecdf9cd05cc295"), "fname" : "Onkar", "lname" : "Gaikwad", "email" : "xyz@gmail.com" }
+{ "_id" : ObjectId("61a86a7219d837747587099c"), "Employees" : [ { "userId" : "rirani", "jobTitleName" : "Developer", "firstName" : "Romin", "lastName" : "Irani", "preferredFullName" : "Romin Irani", "employeeCode" : "E1", "region" : "CA", "phoneNumber" : "408-1234567", "emailAddress" : "romin.k.irani@gmail.com" }, { "userId" : "nirani", "jobTitleName" : "Developer", "firstName" : "Neil", "lastName" : "Irani", "preferredFullName" : "Neil Irani", "employeeCode" : "E2", "region" : "CA", "phoneNumber" : "408-1111111", "emailAddress" : "neilrirani@gmail.com" }, { "userId" : "thanks", "jobTitleName" : "Program Directory", "firstName" : "Tom", "lastName" : "Hanks", "preferredFullName" : "Tom Hanks", "employeeCode" : "E3", "region" : "CA", "phoneNumber" : "408-2222222", "emailAddress" : "tomhanks@gmail.com" } ] }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c5"), "first_name" : "Ganesh", "last_name" : "Pawar", "mob_no" : "8888555511" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c4"), "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "2", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "3", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+
+Ex 3:-
+db.employees.find().sort({_id : 1})
+
+{ "_id" : "1", "fname" : "Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : "2", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "3", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85394cec1eab46c6c79c2"), "fname" : "Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85897e2ecdf9cd05cc295"), "fname" : "Onkar", "lname" : "Gaikwad", "email" : "xyz@gmail.com" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c4"), "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c5"), "first_name" : "Ganesh", "last_name" : "Pawar", "mob_no" : "8888555511" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a86a7219d837747587099c"), "Employees" : [ { "userId" : "rirani", "jobTitleName" : "Developer", "firstName" : "Romin", "lastName" : "Irani", "preferredFullName" : "Romin Irani", "employeeCode" : "E1", "region" : "CA", "phoneNumber" : "408-1234567", "emailAddress" : "romin.k.irani@gmail.com" }, { "userId" : "nirani", "jobTitleName" : "Developer", "firstName" : "Neil", "lastName" : "Irani", "preferredFullName" : "Neil Irani", "employeeCode" : "E2", "region" : "CA", "phoneNumber" : "408-1111111", "emailAddress" : "neilrirani@gmail.com" }, { "userId" : "thanks", "jobTitleName" : "Program Directory", "firstName" : "Tom", "lastName" : "Hanks", "preferredFullName" : "Tom Hanks", "employeeCode" : "E3", "region" : "CA", "phoneNumber" : "408-2222222", "emailAddress" : "tomhanks@gmail.com" } ] }
+
+
+-- ========================================================================================================================================================================
+#How to Update Data 
+1) db.employees.updateOne({_id:"1"},{$set:{fname:'Mr. Onkar'}})
+2) db.employees.updateMany({first_name:"Nikhil"},{$set:{first_name:'Mr. Nikhil'}})
+-- ========================================================================================================================================================================
+
+-------------
+Examples -->
+-------------
+
+Ex 1 :-
+ db.employees.updateOne({_id:"1"},{$set:{fname:'Mr. Onkar'}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+Check whether updated -->
+
+db.employees.find().sort({_id : 1})
+{ "_id" : "1", "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : "2", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "3", "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85394cec1eab46c6c79c2"), "fname" : "Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85897e2ecdf9cd05cc295"), "fname" : "Onkar", "lname" : "Gaikwad", "email" : "xyz@gmail.com" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c4"), "first_name" : "Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c5"), "first_name" : "Ganesh", "last_name" : "Pawar", "mob_no" : "8888555511" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a86a7219d837747587099c"), "Employees" : [ { "userId" : "rirani", "jobTitleName" : "Developer", "firstName" : "Romin", "lastName" : "Irani", "preferredFullName" : "Romin Irani", "employeeCode" : "E1", "region" : "CA", "phoneNumber" : "408-1234567", "emailAddress" : "romin.k.irani@gmail.com" }, { "userId" : "nirani", "jobTitleName" : "Developer", "firstName" : "Neil", "lastName" : "Irani", "preferredFullName" : "Neil Irani", "employeeCode" : "E2", "region" : "CA", "phoneNumber" : "408-1111111", "emailAddress" : "neilrirani@gmail.com" }, { "userId" : "thanks", "jobTitleName" : "Program Directory", "firstName" : "Tom", "lastName" : "Hanks", "preferredFullName" : "Tom Hanks", "employeeCode" : "E3", "region" : "CA", "phoneNumber" : "408-2222222", "emailAddress" : "tomhanks@gmail.com" } ] }
+
+Ex 2 :-
+db.employees.updateMany({first_name:"Nikhil"},{$set:{first_name:'Mr. Nikhil'}})
+{ "acknowledged" : true, "matchedCount" : 3, "modifiedCount" : 3 }
+
+Check whether updated -->
+
+> db.employees.find().sort({_id : 1})
+{ "_id" : "1", "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : "2", "first_name" : "Mr. Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "3", "first_name" : "Mr. Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85394cec1eab46c6c79c2"), "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85897e2ecdf9cd05cc295"), "fname" : "Onkar", "lname" : "Gaikwad", "email" : "xyz@gmail.com" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c4"), "first_name" : "Mr. Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c5"), "first_name" : "Ganesh", "last_name" : "Pawar", "mob_no" : "8888555511" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a86a7219d837747587099c"), "Employees" : [ { "userId" : "rirani", "jobTitleName" : "Developer", "firstName" : "Romin", "lastName" : "Irani", "preferredFullName" : "Romin Irani", "employeeCode" : "E1", "region" : "CA", "phoneNumber" : "408-1234567", "emailAddress" : "romin.k.irani@gmail.com" }, { "userId" : "nirani", "jobTitleName" : "Developer", "firstName" : "Neil", "lastName" : "Irani", "preferredFullName" : "Neil Irani", "employeeCode" : "E2", "region" : "CA", "phoneNumber" : "408-1111111", "emailAddress" : "neilrirani@gmail.com" }, { "userId" : "thanks", "jobTitleName" : "Program Directory", "firstName" : "Tom", "lastName" : "Hanks", "preferredFullName" : "Tom Hanks", "employeeCode" : "E3", "region" : "CA", "phoneNumber" : "408-2222222", "emailAddress" : "tomhanks@gmail.com" } ] }
+
+
+
+-- ========================================================================================================================================================================
+#How to Delete Data 
+1) db.employees.deleteOne({fname:"Onkar"})
+2) db.employees.deleteMany({first_name:"Mr. Nikhil"})
+-- ========================================================================================================================================================================
+
+-------------
+Examples -->
+-------------
+Ex 1:-
+db.employees.deleteOne({fname:"Onkar"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+Check whether updated -->
+
+> db.employees.find().sort({_id : 1})
+{ "_id" : "1", "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : "2", "first_name" : "Mr. Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : "3", "first_name" : "Mr. Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85394cec1eab46c6c79c2"), "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c4"), "first_name" : "Mr. Nikhil", "last_name" : "Gurav", "mob_no" : "8888555500" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c5"), "first_name" : "Ganesh", "last_name" : "Pawar", "mob_no" : "8888555511" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a86a7219d837747587099c"), "Employees" : [ { "userId" : "rirani", "jobTitleName" : "Developer", "firstName" : "Romin", "lastName" : "Irani", "preferredFullName" : "Romin Irani", "employeeCode" : "E1", "region" : "CA", "phoneNumber" : "408-1234567", "emailAddress" : "romin.k.irani@gmail.com" }, { "userId" : "nirani", "jobTitleName" : "Developer", "firstName" : "Neil", "lastName" : "Irani", "preferredFullName" : "Neil Irani", "employeeCode" : "E2", "region" : "CA", "phoneNumber" : "408-1111111", "emailAddress" : "neilrirani@gmail.com" }, { "userId" : "thanks", "jobTitleName" : "Program Directory", "firstName" : "Tom", "lastName" : "Hanks", "preferredFullName" : "Tom Hanks", "employeeCode" : "E3", "region" : "CA", "phoneNumber" : "408-2222222", "emailAddress" : "tomhanks@gmail.com" } ] }
+
+
+Ex 2 : -
+db.employees.deleteMany({first_name:"Mr. Nikhil"})
+{ "acknowledged" : true, "deletedCount" : 3 }
+
+
+
+
+
+Check whether updated -->
+
+> db.employees.find().sort({_id : 1})
+{ "_id" : "1", "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a8502acec1eab46c6c79c1"), "first_name" : "Onkar", "last_name" : "Gaikwad", "email" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85394cec1eab46c6c79c2"), "fname" : "Mr. Onkar", "lname" : "Gaikwad", "mail" : "gaikwadonkar46@gmail.com" }
+{ "_id" : ObjectId("61a85f87cec1eab46c6c79c3"), "first_name" : "Shreekant", "last_name" : "Dhokrat", "mob_no" : "8888555522" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c5"), "first_name" : "Ganesh", "last_name" : "Pawar", "mob_no" : "8888555511" }
+{ "_id" : ObjectId("61a8607fcec1eab46c6c79c6"), "first_name" : "Rohan", "last_name" : "Wable", "mob_no" : "8888555533" }
+{ "_id" : ObjectId("61a86a7219d837747587099c"), "Employees" : [ { "userId" : "rirani", "jobTitleName" : "Developer", "firstName" : "Romin", "lastName" : "Irani", "preferredFullName" : "Romin Irani", "employeeCode" : "E1", "region" : "CA", "phoneNumber" : "408-1234567", "emailAddress" : "romin.k.irani@gmail.com" }, { "userId" : "nirani", "jobTitleName" : "Developer", "firstName" : "Neil", "lastName" : "Irani", "preferredFullName" : "Neil Irani", "employeeCode" : "E2", "region" : "CA", "phoneNumber" : "408-1111111", "emailAddress" : "neilrirani@gmail.com" }, { "userId" : "thanks", "jobTitleName" : "Program Directory", "firstName" : "Tom", "lastName" : "Hanks", "preferredFullName" : "Tom Hanks", "employeeCode" : "E3", "region" : "CA", "phoneNumber" : "408-2222222", "emailAddress" : "tomhanks@gmail.com" } ] }
+
+UPSERT COMMAND 
+db.employees.updateOne({fname:"amol"},{ $set: {lname:"mote"}},{upsert:true})   updateOne update the existing data
+										upsert true update the data even though it does not exists.
