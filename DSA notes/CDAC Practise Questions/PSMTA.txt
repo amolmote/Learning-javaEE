@@ -1,0 +1,355 @@
+Q1: Consider a situation where swap operation is very costly. Which of the following sorting algorithms should be preferred so that the number of swap operations are minimized in general?
+1. Heap Sort
+2. Selection Sort
+3. Insertion Sort
+4. Merge Sort
+Answer: 2
+
+Q2: Suppose we are sorting an array of eight integers using quicksort, and we have just finished the first partitioning with the array looking like this:
+2  5  1  7  9  12  11  10
+Which statement is correct?
+1. The pivot could be either the 7 or the 9.
+2. The pivot could be the 7, but it is not the 9
+3. The pivot is not the 7, but it could be the 9
+4. Neither the 7 nor the 9 is the pivot.
+Answer: 1
+
+Q3: What is the best time complexity of bubble sort?
+1. N^2
+2. NlogN
+3. N
+4. N(logN)^2
+Answer: 3
+
+Q4: Which of the following sorting algorithms has the lowest worst-case complexity?
+1. Merge Sort
+2. Bubble Sort
+3. Quick Sort
+4. Selection Sort
+Answer: 1
+
+Q5: Which of the following algorithm design technique is used in merge sort?
+1. Greedy method
+2. Backtracking
+3. Dynamic programming
+4. Divide and Conquer
+Answer: 4
+
+Q6: Selection sort algorithm design technique is an example of
+1. Greedy method
+2. Divide-and-conquer
+3. Dynamic Programming
+4. Backtracking
+Answer: 1
+
+Q7: You have to sort a list L, consisting of a sorted list followed by a few ‘random’ elements. Which of the following sorting method would be most suitable for such a task?
+1. Bubble Sort
+2. Selection Sort
+3. Quick Sort
+4. Insertion Sort
+Answer: 4
+
+Q8: A pivot element to partition unsorted list is used in
+1. Merge Sort
+2. Quick Sort
+3. Insertion Sort
+4. Selection Sort
+Answer: 2
+
+Q9: Which of the following algorithm does not divide the list −
+1. Linear Search
+2. Binary Search
+3. Merge Sort
+4. Quick Sort
+Answer: 1
+
+Q10: Time required to merge two sorted lists of size m and n, is
+1. O(m | n)
+2. O(m + n)
+3. O(m log n)
+4. O(n log m)
+Answer: 2
+
+Q11: Quick sort running time depends on the selection of
+1. size of array
+2. pivot element
+3. sequence of values
+4. none of the above
+Answer: 2
+
+Q12: The average number of key comparisons required for a successful search for sequential search on items is
+1. n/2
+2. (n-1)/2
+3. (n+1)/2
+4. None of these
+Answer: 3
+
+Q13: Where is linear searching used?
+1. When the list has only a few elements
+2. When performing a single search in an unordered list
+3. Used all the time
+4. When the list has only a few elements and When performing a single search in an unordered list
+Answer: 4
+
+Q14: What is the best case and worst case complexity of ordered linear search?
+1. O(nlogn), O(logn)
+2. O(logn), O(nlogn)
+3. O(n), O(1)
+4. O(1), O(n)
+Answer: 4
+
+Q15: Which of the following is a disadvantage of linear search?
+1. Requires more space
+2. Greater time complexities compared to other searching algorithms
+3. Not easy to understand
+4. Not easy to implement
+Answer: 2
+
+Q16: The complexity of Binary search algorithm is
+1. O(n)
+2. O(log n)
+3. O(n2)
+4. O(logn2)
+Answer: 2
+
+Q17: Binary search can be applied on the sorted __________.
+1. array or list
+2. Arguments
+3. Queues
+4. pointers
+Answer: 2
+
+Q18: In binary search, we compare the value with the elements in the __________ position of the array.
+1. right
+2. Left
+3. Random
+4. middle
+Answer: 4
+
+Q19: Which of the following is not the required condition for binary search algorithm?
+1. The list must be sorted
+2. There should be the direct access to the middle element in any sub list
+3. There must be mechanism to delete and/or insert elements in list.
+4. Number values should only be present
+Answer: 3
+
+Q20: Which of the following is not a limitation of binary search algorithm?
+1. must use a sorted array.
+2. requirement of sorted array is expensive when a lot of insertion and deletions are needed.
+3. there must be a mechanism to access middle element directly.
+4. binary search algorithm is not efficient when the data elements more than 1500.
+Answer: 4
+
+Q21: What is the advantage of recursive approach than an iterative approach?
+1. Consumes less memory
+2. Less code and easy to implement
+3. Consumes more memory
+4. More code has to be written
+Answer: 2
+
+Q22: Which of the following is not an application of binary search?
+1. To find the lower/upper bound in an ordered sequence
+2. Union of intervals
+3. Debugging
+4. To search in unordered list
+Answer: 4
+
+Q23: Binary Search can be categorized into which of the following?
+1. Brute Force technique
+2. Divide and conquer
+3. Greedy algorithm
+4. Dynamic programming
+Answer: 2
+
+Q24: Partition and exchange sort is ___________.
+1. quick sort
+2. tree sort
+3. heap sort
+4. bubble sort
+Answer: 1
+
+Q25: Find the remainder when 123 + 234 + 32 + 56 + 22 + 12 + 78  is divided by 3.
+1. 2
+2. 3
+3. 5
+4. 7
+Answer: 1
+
+Q26: A number when divided by a divisor leaves a remainder of 24.
+When twice the original number is divided by the same divisor, the remainder is 11. What is the value of the divisor?
+1. 13
+2. 59
+3. 35
+4. 37
+Answer: 4
+
+Q27: What is (8 x 16) (mod 7)?
+1. 1
+2. 2
+3. 3
+4. 4
+Answer: 2
+
+Q28: Find the remainder when 124 x 123 x 23 x 49 x 235 x 13 is divided by 3.
+1. 1
+2. 2
+3. 3
+4. 4
+Answer: 1
+
+Q29: p ↔ q is logically equivalent to:
+1. (p → q) → (q → p)
+2. (p → q) ∨ (q → p)
+3. (p → q) ∧ (q → p)
+4. (p ∧ q) → (q ∧ p)
+Answer: 3
+
+Q30: The compound statement A-> (A->B) is false, then the truth values of A, B are respectively
+1. T, T
+2. F, T
+3. T, F
+4. F, F
+Answer: 3
+
+Q31: Which one of the following is the minimum value of the sum of two integers whose product is 36?
+1. 37
+2. 20
+3. 15
+4. 12
+Answer: 4
+
+Q32: Six Thinking Hat theory was coined by
+1. Edward Franklin
+2. Jurgen Klopp
+3. Edward de Bono
+4. David De Gea
+Answer: 3
+
+Q33: Emotions, Intuitions and Feelings symbolizes which of the following Hats?
+1. Blue
+2. White
+3. Green
+4. Red
+Answer: 4
+
+Q34: Gary in a meeting said, "Over the past quarter our sales have dipped by 4.5%. We have lost close to 5 million in share prices from the North-West Province".
+Which Hat do you feel Gary is wearing?
+1. Green
+2. White
+3. Black
+4. Yellow
+Answer: 2
+
+Q35: Members wearing the Black Hat are generally very:
+1. Positive and Optimistic
+2. Generates new ideas and solutions to existing problems
+3. Control the entire process of the discussion
+4. Negative, Pessimistic and Cynical
+Answer: 4
+
+Q36: By using the Six Thinking Hat Theory we can:
+1. Observe a program holistically
+2. Assess the pros and cons of a probable problem and its solutions
+3. Analyse and Evaluate a problem from all possible angles.
+4. All of them
+Answer: 4
+
+Q37: When dealing with the subject of thinking, which of the following statements should be taken into account?
+1. It is possible for people of all ages and levels of intelligence to be taught to be good thinkers
+2. There is no need to teach students with low intelligence since they can never be good thinkers
+3. There is no need to teach students with low intelligence since they can never be good thinkers
+4. There is no need to teach intelligent students since they will automatically be good thinkers
+Answer: 1
+
+Q38: Which of the following statements is NOT true?
+1. Knowledge is the basic material handled by thinking
+2. Good thinking is always dependent on high intelligence quotient
+3. Intelligence is influenced by genes, early environment, or a mixture of both
+4. Thinking is the operating skill through which intelligence acts upon experience
+Answer: 2
+
+Q39: What least number must be added to 1056, so that the sum is completely divisible by 23?
+1. 2
+2. 3
+3. 18
+4. 21
+Answer: 1
+
+Q40: How many of the following numbers are divisible by 132 ?
+264, 396, 462, 792, 968, 2178, 5184, 6336
+1. 4
+2. 5
+3. 6
+4. 7
+Answer: 1
+
+Q41: Which of the following is a prime number?
+1. 33
+2. 81
+3. 93
+4. 97
+Answer: 4
+
+Q42: The difference of two numbers is 1365. On dividing the larger number by the smaller, we get 6 as quotient and the 15 as remainder. What is the smaller number ?
+1. 240
+2. 270
+3. 295
+4. 360
+Answer: 2
+
+Q43: If the number 517*324 is completely divisible by 3, then the smallest whole number in the place of * will be:
+1. 0
+2. 1
+3. 2
+4. None of these
+Answer: 3
+
+Q44: The sum of first 45 natural numbers is:
+1. 1035
+2. 1280
+3. 2070
+4. 2140
+Answer: 1
+
+Q45: If the number 481 * 673 is completely divisible by 9, then the smallest whole number in place of * will be:
+1. 2
+2. 5
+3. 6
+4. 7
+Answer: 4
+
+Q46: Convert binary 111111110010 to hexadecimal.
+1. EE2
+2. FF2
+3. 2FE
+4. FD2
+Answer: 2
+
+Q47: Convert the binary number 1001.00102 to decimal.
+1. 90.125
+2. 9.125
+3. 125
+4. 12.5
+Answer: 2
+
+Q48: The sum of 11101 + 10111 equals ________.
+1. 110011
+2. 100001
+3. 110100
+4. 100100
+Answer: 3
+
+Q49: A binary number's value changes most drastically when the ________ is changed.
+1. MSB
+2. frequency	
+3. LSB
+4. duty cycle
+Answer: 1
+
+Q50: What is the resultant binary of the decimal problem 49 + 01 = ?
+1. 01010101
+2. 00110101
+3. 00110010
+4. 00110001
+Answer: 3
+

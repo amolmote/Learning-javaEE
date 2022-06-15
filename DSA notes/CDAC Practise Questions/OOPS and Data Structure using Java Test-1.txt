@@ -1,0 +1,568 @@
+Q1: What is the numerical range of a char?
+1. -128 to 127
+2. 0 to 32767
+3. 0 to 65535
+4. None of these
+Answer: 3
+
+Q2: Which one of the following will declare an array and initialize it with five numbers?
+1. Array a = new Array(5);
+2. int a [] = new int[5];
+3. int [5] array;
+4. int [] a = {23,22,21,20,19};
+Answer: 4
+
+Q3: Which two cause a compiler error?
+1. float[ ] f = new float(3);
+2. float f2[ ] = new float[ ];
+3. float[ ]f1 = new float[3];
+4. float f3[ ] = new float[3];
+5. float f5[ ] = {1.0f, 2.0f, 2.0f};
+1. 2, 4
+2. 3, 5
+3. 4, 5
+4. 1, 2
+Answer: 4
+
+Q4: public class Test { }
+What is the prototype of the default constructor?
+1. Test()
+2. Test(void)
+3. public Test()
+4. public Test(void)
+Answer: 3
+
+Q5: What will be the output of the program?
+class Equals 
+{
+    public static void main(String [] args) 
+    {
+        int x = 100;
+        double y = 100.1;
+        boolean b = (x = y); /* Line 7 */
+        System.out.println(b);
+    }
+}
+1. true
+2. false
+3. Compilation fails
+4. An exception is thrown at runtime
+Answer: 3
+
+Q6: What will be the output of the program?
+class Test 
+{
+    public static void main(String [] args) 
+    {
+        int x= 0;
+        int y= 0;
+        for (int z = 0; z < 5; z++) 
+        {
+            if (( ++x > 2 ) && (++y > 2)) 
+            {
+                x++;
+            }
+        }
+        System.out.println(x + " " + y);
+    }
+}
+1. 6 3
+2. 5 2
+3. 5 3
+4. 6 4
+Answer: 1
+
+Q7: What will be the output of the program?
+class Bitwise 
+{
+    public static void main(String [] args) 
+    {
+        int x = 11 & 9;
+        int y = x ^ 3;
+        System.out.println( y | 12 );
+    }
+}
+1. 0
+2. 7
+3. 8
+4. 14
+Answer: 4
+
+Q8: What will be the output of the program?
+class Test 
+{
+    static int s;
+    public static void main(String [] args) 
+    {
+        Test p = new Test();
+        p.start();
+        System.out.println(s);
+    }
+
+    void start() 
+    {
+        int x = 7;
+        twice(x);
+        System.out.print(x + " ");
+    }
+
+    void twice(int x) 
+    {
+        x = x*2;
+        s = x;
+    }
+}
+1. 7 7
+2. 7 14
+3. 14 0
+4. 14 14
+Answer: 2
+
+Q9: What will be the output of the program?
+public class Test 
+{ 
+    public static void leftshift(int i, int j) 
+    {
+        i <<= j; 
+    } 
+    public static void main(String args[]) 
+    {
+        int i = 4, j = 2; 
+        leftshift(i, j); 
+        System.out.println(i); 
+    } 
+}
+1. 2
+2. 4
+3. 8
+4. 16
+Answer: 2
+
+Q10: public void test(int x) 
+{ 
+    int odd = 1; 
+    if(odd) /* Line 4 */
+    {
+        System.out.println("odd"); 
+    } 
+    else 
+    {
+        System.out.println("even"); 
+    } 
+}
+Which statement is true?
+1. Compilation fails.
+2. "odd" will always be output.
+3. "even" will always be output.
+4. "odd" will be output for odd values of x, and "even" for even values.
+Answer: 1
+
+Q11: What will be the output of the program?
+try 
+{ 
+    int x = 0; 
+    int y = 5 / x; 
+} 
+catch (Exception e) 
+{
+    System.out.println("Exception"); 
+} 
+catch (ArithmeticException ae) 
+{
+    System.out.println(" Arithmetic Exception"); 
+} 
+System.out.println("finished");
+1. finished
+2. Exception
+3. Compilation fails
+4. Arithmetic Exception
+Answer: 3
+
+Q12: What will be the output of the program?
+public class MyProgram 
+{
+    public static void main(String args[])
+    {
+        try 
+        {
+            System.out.print("Hello world ");
+        }
+        finally 
+        {
+            System.out.println("Finally executing ");
+        }
+    }
+}
+1. Nothing. The program will not compile because no exceptions are specified.
+2. Nothing. The program will not compile because no catch clauses are specified.
+3. Hello world.
+4. Hello world Finally executing
+Answer: 4
+
+Q13: Which statement is true?
+1. A try statement must have at least one corresponding catch block.
+2. Multiple catch statements can catch the same class of exception more than once.
+3. An Error that might be thrown in a method must be declared as thrown by that method, or be handled within that method.
+4. Except in case of VM shutdown, if a try block starts to execute, a corresponding finally block will always start to execute.
+Answer: 4
+
+Q14: Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?
+1. java.util.HashSet
+2. java.util.LinkedHashSet
+3. java.util.List
+4. java.util.ArrayList
+Answer: 4
+
+Q15: You need to store elements in a collection that guarantees that no duplicates are stored and all elements can be accessed in natural order. Which interface provides that capability?
+1. java.util.Map
+2. java.util.Set
+3. java.util.List
+4. java.util.Collection
+Answer: 2
+
+Q16: Which is valid declaration of a float?
+1. float f = 1F;
+2. float f = 1.0;
+3. float f = "1";
+4. float f = 1.0d;
+Answer: 1
+
+Q17: Which of the following are Java reserved words?
+1. run
+2. import
+3. default
+4. implement
+1. 1 and 2
+2. 2 and 3
+3. 3 and 4
+4. 2 and 4
+Answer: 2
+
+Q18: What will be the output of the program?
+TreeSet<String> ts = new TreeSet<String>();
+ts.add("one");
+ts.add("two");
+ts.add("three");
+ts.add("four");
+ts.add("one");
+Iterator it = ts.iterator();
+while (it.hasNext() ) 
+{
+    System.out.print( it.next() + " " );
+}
+1. one two three four
+2. four three two one
+3. four one three two
+4. one two three four one
+Answer: 3
+
+Q19: What will be the output of the program?
+public class Test 
+{ 
+    public static void main (String[] args) 
+    {
+        String foo = args[1]; 
+        String bar = args[2]; 
+        String baz = args[3]; 
+        System.out.println("baz = " + baz); /* Line 8 */
+    } 
+}
+And the command line invocation:
+> java Test red green blue
+1. baz =
+2. baz = null
+3. baz = blue
+4. Runtime Exception
+Answer: 4
+
+Q20: Which constructs an anonymous inner class instance?
+1. Runnable r = new Runnable() { };
+2. Runnable r = new Runnable(public void run() { });
+3. Runnable r = new Runnable { public void run(){}};
+4. System.out.println(new Runnable() {public void run() { }});
+Answer: 4
+
+Q21: What will be the output of the program?
+String x = new String("xyz");
+String y = "abc";
+x = x + y;
+How many String objects have been created?
+1. 2
+2. 3
+3. 4
+4. 5
+Answer: 3
+
+Q22: What will be the output of the program?
+String x = "xyz";
+x.toUpperCase(); /* Line 2 */
+String y = x.replace('Y', 'y');
+y = y + "abc";
+System.out.println(y);
+1. abcXyZ
+2. abcxyz
+3. xyzabc
+4. XyZabc
+Answer: 3
+
+Q23: What will be the output of the program?
+int i = 1, j = 10; 
+do 
+{
+    if(i++ > --j) /* Line 4 */
+    {
+        continue; 
+    } 
+} while (i < 5); 
+System.out.println("i = " + i + "and j = " + j); /* Line 9 */
+1. i = 6 and j = 5
+2. i = 5 and j = 5
+3. i = 6 and j = 6
+4. i = 5 and j = 6
+Answer: 4
+
+Q24: What will be the output of the program?
+class Test
+{ 
+    public static void main(String[] args) 
+    {
+        int i1 = 5; 
+        int i2 = 6; 
+        String s1 = "7"; 
+        System.out.println(i1 + i2 + s1); /* Line 8 */
+    } 
+}
+1. 18
+2. 117
+3. 567
+4. Compiler Error
+Answer: 2
+
+Q25: What will be the output of the program?
+String s = "ABC"; 
+s.toLowerCase(); 
+s += "def"; 
+System.out.println(s);
+1. ABC
+2. abc
+3. ABCdef
+4. Compile Error
+Answer: 3
+
+Q26: What will be the output of the program?
+String a = "newspaper";
+a = a.substring(5,7);
+char b = a.charAt(1);
+a = a + b;
+System.out.println(a);
+1. apa
+2. app
+3. apea
+4. apep
+Answer: 2
+
+Q27: Which of the following will directly stop the execution of a Thread?
+1. wait()
+2. notify()
+3. notifyall()
+4. exists synchronized code
+Answer: 1
+
+Q28: Which method must be defined by a class implementing the java.lang.Runnable interface?
+1. void run()
+2. public void run()
+3. public void start()
+4. void run(int priority)
+Answer: 2
+
+Q29: Which class or interface defines the wait(), notify(),and notifyAll() methods?
+1. Object
+2. Thread
+3. Runnable
+4. Class
+Answer: 1
+
+Q30: public class MyRunnable implements Runnable 
+{
+    public void run() 
+    {
+        // some code here
+    }
+}
+which of these will create and start this thread?
+1. new Runnable(MyRunnable).start();
+2. new Thread(MyRunnable).run();
+3. new Thread(new MyRunnable()).start();
+4. new MyRunnable().start();
+Answer: 3
+
+Q31: Which of these is a protocol for breaking and sending packets to an address across a network?
+1. TCP/IP
+2. DNS
+3. Socket
+4. Proxy Server
+Answer: 1
+
+Q32: Which of these package contains classes and interfaces for networking?
+1. java.io
+2. java.util
+3. java.net
+4. java.network
+Answer: 3
+
+Q33: Which of these is a return type of getAddress method of DatagramPacket class?
+1. InetAddress
+2. ServerSocket
+3. DatagramSocket
+4. DatagramPacket
+Answer: 1
+
+Q34: Which of these exception is thrown by URL class’s constructors?
+1. URLNotFound
+2. URLSourceNotFound
+3. MalformedURLException
+4. URLNotFoundException
+Answer: 3
+
+Q35: Which one of the following is an application of Queue Data Structure?
+1. When a resource is shared among multiple consumers.
+2. When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes
+3. Load Balancing
+4. All of the above
+Answer: 4
+
+Q36: How many stacks are needed to implement a queue. Consider the situation where no other data structure like arrays, linked list is available to you.
+1. 1
+2. 2
+3. 3
+4. 4
+Answer: 2
+
+Q37: Consider the following pseudo code. Assume that IntQueue is an integer queue. What does the function fun do?
+void fun(int n)
+{
+    IntQueue q = new IntQueue();
+    q.enqueue(0);
+    q.enqueue(1);
+    for (int i = 0; i < n; i++)
+    {
+        int a = q.dequeue();
+        int b = q.dequeue();
+        q.enqueue(b);
+        q.enqueue(a + b);
+        ptint(a);
+    }
+}
+1. Prints numbers from 0 to n-1
+2. Prints numbers from n-1 to 0
+3. Prints first n Fibonacci numbers
+4. Prints first n Fibonacci numbers in reverse order.
+Answer: 3
+
+Q38: Choose correct output for the following sequence of operations.
+push(5)
+push(8)
+pop
+push(2)
+push(5)
+pop
+pop
+pop
+push(1)
+pop
+1. 8 5 2 5 1
+2. 8 5 5 2 1
+3. 8 2 5 5 1
+4. 8 1 2 5 5
+Answer: 1
+
+Q39: Stack data structure cannot be used for
+1. Implementation of Recursive Function
+2. Allocation Resources and Scheduling
+3. Reversing string
+4. Evaluation of string in postfix form
+Answer: 2
+
+Q40: If the MAX_SIZE is the size of the array used in the implementation of circular queue, array index start with 0, front point to the first element in the queue, and rear point to the last element in the queue. Which of the following condition specify that circular queue is FULL?
+1. Front=rear= -1
+2. Front=(rear+1)%MAX_SIZE
+3. Rear=front+1
+4. Rear=(front+1)%MAX_SIZE
+Answer: 2
+
+Q41: In a circular linked list
+1. Components are all linked together in some sequential manner.
+2. There is no beginning and no end.
+3. Components are arranged hierarchically.
+4. Forward and backward traversal within the list is permitted.
+Answer: 2
+
+Q42: The pre-order and in-order are traversals of a binary tree are T M L N P O Q and L M N T O P Q. Which of following is post-order traversal of the tree?
+1. L N M O Q P T
+2. N M Q P O L T
+3. L M N O P Q T
+4. O P L M N Q T
+Answer: 1
+
+Q43: Which of the following is false about a doubly linked list?
+1. We can navigate in both the directions
+2. It requires more space than a singly linked list
+3. The insertion and deletion of a node take a bit longer
+4. Implementing a doubly linked list is easier than singly linked list
+Answer: 4
+
+Q44: Which sorting algorithm is the slowest algorithm for large number of data?
+1. Quick Sort
+2. Heap Sort
+3. Bubble Sort
+4. Merge Sort
+Answer: 3
+
+Q45: Consider the following statements:
+i.   First-in-first out types of computations are efficiently supported by STACKS.
+ii.  Implementing LISTS on linked lists is more efficient than implementing LISTS on
+     an array for almost all the basic LIST operations.
+iii. Implementing QUEUES on a circular array is more efficient than implementing QUEUES
+     on a linear array with two indices.
+iv.  Last-in-first-out type of computations are efficiently supported by QUEUES.
+Which of the following is correct?
+1. (ii) and (iii) are true
+2. (i) and (ii) are true
+3. (iii) and (iv) are true
+4. (ii) and (iv) are true
+Answer: 1
+
+Q46: _______________ solves the problem of finding the shortest path from a point in a graph to a destination.
+1. Kruskal's Algorithm
+2. Prim's Algorithm
+3. Dijkstra Algorithm
+4. Bellman Ford Algorithm
+Answer: 3
+
+Q47: Complete graphs with n nodes will have ___________ edges.
+1. n/2
+2. n-1
+3. (n-1)/2
+4. n(n-1)/2
+Answer: 4
+
+Q48: The data structure required for Breadth First Traversal on a graph is
+1. Tree
+2. Stack
+3. Array
+4. Queue
+Answer: 4
+
+Q49: In a selection sort of n elements, how many times is the swap function called in the complete execution of the algorithm?
+1. n log n
+2. n - 1
+3. n^2
+4. 1
+Answer: 3
+
+Q50: Suppose we have a circular array implementation of the queue class, with ten items in the queue stored at data[2] through data[11]. The CAPACITY is 42. Where does the push member function place the new entry in the array?
+1. data[11]
+2. data[2]
+3. data[12]
+4. data[1]
+Answer: 3
